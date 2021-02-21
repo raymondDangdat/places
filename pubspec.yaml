@@ -21,12 +21,15 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   provider: ^3.0.0+1
-  image_picker: ^0.6.7+22
-  path_provider: ^1.6.27
-  path: 
-  fluttertoast: ^7.1.7
-  sqflite: 
-  loction: ^2.3.5
+  image_picker: ^0.6.0+9
+  path_provider: ^1.1.0
+  path: ^1.6.2
+  sqflite: ^1.1.5
+  location: ^3.0.0
+  fluttertoast: ^7.1.8
+  google_maps_flutter: ^1.2.0
+  
+  # loction: ^2.3.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
