@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:places/models/place.dart';
 import 'package:provider/provider.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../widgets/image_input.dart';
@@ -16,17 +17,25 @@ class _AddPlaceState extends State<AddPlace> {
   final _titleController = TextEditingController();
   File _pickedImage;
 
+  PlaceLocation _pickedLocation;
+
   void _selectImage(File pickedImage) {
     _pickedImage = pickedImage;
   }
 
+  void _selectPlace(double lat, double lng) {
+    _pickedLocation = PlaceLocation(latitude: lat, longitude: lng);
+  }
+
   void _savePlace() {
-    if (_titleController.text.isEmpty || _pickedImage == null) {
+    if (_titleController.text.isEmpty ||
+        _pickedImage == null ||
+        _pickedLocation == null) {
       Fluttertoast.showToast(msg: "Please add a valid title of the place");
       return;
     }
     Provider.of<PlacesProvider>(context, listen: false)
-        .addPlace(_titleController.text, _pickedImage);
+        .addPlace(_titleController.text, _pickedImage, _pickedLocation);
     Fluttertoast.showToast(msg: "Place Added");
 
     Navigator.of(context).pop();
@@ -59,7 +68,7 @@ class _AddPlaceState extends State<AddPlace> {
                     SizedBox(
                       height: 10.0,
                     ),
-                    LocationInPut(),
+                    LocationInPut(_selectPlace),
                   ],
                 ),
               ),
