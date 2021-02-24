@@ -7,8 +7,11 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="places"
+        android:label="Smart Places"
+        android:requestLegacyExternalStorage="true"
         android:icon="@mipmap/launcher_icon">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBH6eqOkocSpvrlmIq6CewdvNUbTGH18eI"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
