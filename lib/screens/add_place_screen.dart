@@ -58,6 +58,7 @@ class _AddPlaceState extends State<AddPlace> {
                 child: Column(
                   children: [
                     TextField(
+                      textCapitalization: TextCapitalization.words,
                       controller: _titleController,
                       decoration: InputDecoration(labelText: 'Title'),
                     ),
